@@ -15,7 +15,10 @@
                         <label for="title">Title</label>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Enter The Title" required>
+                        <input type="text" class="form-control" id="title" value="{{old('title')}}" name="title" placeholder="Enter The Title">
+                        @error('title')
+                        <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
                     </td>
                 </tr>
                 <tr>
@@ -23,7 +26,10 @@
                         <label for="desc">Description</label>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="title" name="description" placeholder="Enter The Title" required>
+                        <input type="text" class="form-control" id="title" name="description" value="{{old('description')}}" placeholder="Enter The Title" >
+                        @error('description')
+                        <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
                     </td>
                 </tr>
                 <tr>

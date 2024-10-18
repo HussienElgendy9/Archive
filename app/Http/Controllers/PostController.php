@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
 
         $request->validate([
@@ -57,6 +58,32 @@ class PostController extends Controller
 
         // return $request;
     }
+    // public function store(Request $request)
+    // {
+
+    //     $request->validate([
+    //         'title' => 'required|unique:posts|max:30',
+    //         'description' => 'required|unique:posts|max:255'
+    //     ]);
+    //     //
+    //     //First Way: using save
+    //     // $post = new Post();
+    //     // $post->title = $request->title;
+    //     // $post->description = $request->desc;
+    //     // $post->save();
+    //     // return response('تم اضافه البيانات بنجاح!');
+    //     //Second Way: using create (includes the fillables and the guarded)
+    //     Post::create([ //this is the normal way of writing it, there is another way which is $request all BUT, the name of the table column has to be the same name as the request
+    //         'title'=> $request->title,
+    //         'description' => $request->description
+    //     ]);
+    //     return redirect()->route('posts.index');
+    //     // Post::create([ //like this, but the name of the table column has to be the same as the names from the request
+    //     //     $request->all()
+    //     // ]);
+
+    //     // return $request;
+    // }
 
     /**
      * Display the specified resource.
